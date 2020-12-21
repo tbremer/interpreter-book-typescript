@@ -9,6 +9,7 @@
   },
   "dependencies": {},
   "devDependencies": {
+    "@types/jest": "26.0.19",
     "parcel-bundler": "^1.6.1"
   },
   "keywords": []

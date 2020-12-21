@@ -23,4 +23,58 @@ describe("lexer", () => {
       }
     });
   });
+
+  it("parses small programs", () => {
+    const input = `let five = 5;
+    let ten = 10;
+    
+    let add = fn(x,y) { x + y };
+    
+    let result = add(five, ten);
+    `;
+    let expectations: Array<[string, TokenType]> = [
+      ["let", TokenType.Let],
+      ["five", TokenType.Ident],
+      ["=", TokenType.Assign],
+      ["5", TokenType.Int],
+      [";", TokenType.Semicolon],
+      ["let", TokenType.Let],
+      ["ten", TokenType.Ident],
+      ["=", TokenType.Assign],
+      ["10", TokenType.Int],
+      [";", TokenType.Semicolon],
+      ["let", TokenType.Let],
+      ["add", TokenType.Ident],
+      ["=", TokenType.Assign],
+      ["fn", TokenType.Function],
+      ["(", TokenType.LParen],
+      ["x", TokenType.Ident],
+      [",", TokenType.Comma],
+      ["y", TokenType.Ident],
+      [")", TokenType.RParen],
+      ["{", TokenType.LBrace],
+      ["x", TokenType.Ident],
+      ["+", TokenType.Plus],
+      ["y", TokenType.Ident],
+      ["}", TokenType.RBrace],
+      [";", TokenType.Semicolon],
+      ["let", TokenType.Let],
+      ["result", TokenType.Ident],
+      ["=", TokenType.Assign],
+      ["add", TokenType.Ident],
+      ["(", TokenType.LParen],
+      ["five", TokenType.Ident],
+      [",", TokenType.Comma],
+      ["ten", TokenType.Ident],
+      [")", TokenType.RParen],
+      [";", TokenType.Semicolon],
+      ["", TokenType.EOF]
+    ];
+
+    const lexer = new Lexer(input);
+
+    for (const [literal, type] of expectations) {
+      expect(lexer.nextToken()).toStrictEqual({ literal, type });
+    }
+  });
 });

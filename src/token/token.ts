@@ -4,18 +4,18 @@ export interface Token {
 }
 
 export enum TokenType {
-  Illegal,
-  EOF,
-  Ident, // x, y, foo, bar
-  Int, // 1,2,44
-  Assign, // =
-  Plus,
-  Comma,
-  Semicolon,
-  LParen,
-  RParen,
-  LBrace,
-  RBrace,
-  Function,
-  Let
+  Illegal = "Illegal",
+  EOF = "EOF",
+  Ident = "Ident", // x, y, foo, bar
+  Int = "Int", // 1,2,44
+  Assign = "Assign", // =
+  Plus = "Plus",
+  Comma = "Comma",
+  Semicolon = "Semicolon",
+  LParen = "LParen",
+  RParen = "RParen",
+  LBrace = "LBrace",
+  RBrace = "RBrace",
+  Function = "Function",
+  Let = "Let"
 }
