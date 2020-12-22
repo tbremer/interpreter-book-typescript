@@ -31,6 +31,8 @@ describe("lexer", () => {
     let add = fn(x,y) { x + y };
     
     let result = add(five, ten);
+    !-/*5;
+    5 < 10 > 5;
     `;
     let expectations: Array<[string, TokenType]> = [
       ["let", TokenType.Let],
@@ -67,6 +69,18 @@ describe("lexer", () => {
       [",", TokenType.Comma],
       ["ten", TokenType.Ident],
       [")", TokenType.RParen],
+      [";", TokenType.Semicolon],
+      ["!", TokenType.Bang],
+      ["-", TokenType.Minus],
+      ["/", TokenType.Slash],
+      ["*", TokenType.Asterisk],
+      ["5", TokenType.Int],
+      [";", TokenType.Semicolon],
+      ["5", TokenType.Int],
+      ["<", TokenType.LessThan],
+      ["10", TokenType.Int],
+      [">", TokenType.GreaterThan],
+      ["5", TokenType.Int],
       [";", TokenType.Semicolon],
       ["", TokenType.EOF]
     ];

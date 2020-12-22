@@ -89,6 +89,30 @@ export default class implements Lexer {
         token = { literal: this.ch, type: TokenType.Plus };
         break;
       }
+      case "!": {
+        token = { literal: this.ch, type: TokenType.Bang };
+        break;
+      }
+      case "-": {
+        token = { literal: this.ch, type: TokenType.Minus };
+        break;
+      }
+      case "/": {
+        token = { literal: this.ch, type: TokenType.Slash };
+        break;
+      }
+      case "*": {
+        token = { literal: this.ch, type: TokenType.Asterisk };
+        break;
+      }
+      case "<": {
+        token = { literal: this.ch, type: TokenType.LessThan };
+        break;
+      }
+      case ">": {
+        token = { literal: this.ch, type: TokenType.GreaterThan };
+        break;
+      }
       case "{": {
         token = { literal: this.ch, type: TokenType.LBrace };
         break;
