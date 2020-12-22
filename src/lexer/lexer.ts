@@ -15,6 +15,16 @@ function identifierLookup(ident: string): TokenType {
       return TokenType.Let;
     case "fn":
       return TokenType.Function;
+    case "true":
+      return TokenType.True;
+    case "false":
+      return TokenType.False;
+    case "if":
+      return TokenType.If;
+    case "else":
+      return TokenType.Else;
+    case "return":
+      return TokenType.Return;
     default:
       return TokenType.Ident;
   }

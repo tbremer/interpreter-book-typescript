@@ -33,6 +33,12 @@ describe("lexer", () => {
     let result = add(five, ten);
     !-/*5;
     5 < 10 > 5;
+
+    if (5 < 10) {
+      return true;
+    } else {
+      return false;
+    }
     `;
     let expectations: Array<[string, TokenType]> = [
       ["let", TokenType.Let],
@@ -82,6 +88,23 @@ describe("lexer", () => {
       [">", TokenType.GreaterThan],
       ["5", TokenType.Int],
       [";", TokenType.Semicolon],
+      ["if", TokenType.If],
+      ["(", TokenType.LParen],
+      ["5", TokenType.Int],
+      ["<", TokenType.LessThan],
+      ["10", TokenType.Int],
+      [")", TokenType.RParen],
+      ["{", TokenType.LBrace],
+      ["return", TokenType.Return],
+      ["true", TokenType.True],
+      [";", TokenType.Semicolon],
+      ["}", TokenType.RBrace],
+      ["else", TokenType.Else],
+      ["{", TokenType.LBrace],
+      ["return", TokenType.Return],
+      ["false", TokenType.False],
+      [";", TokenType.Semicolon],
+      ["}", TokenType.RBrace],
       ["", TokenType.EOF]
     ];
 

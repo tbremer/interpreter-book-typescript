@@ -8,7 +8,7 @@ export enum TokenType {
   EOF = "EOF",
   Ident = "Ident", // x, y, foo, bar
   Int = "Int", // 1,2,44
-  
+
   // Operators
   Assign = "Assign", // =
   Plus = "Plus",
@@ -25,6 +25,13 @@ export enum TokenType {
   RParen = "RParen",
   LBrace = "LBrace",
   RBrace = "RBrace",
+
+  // Keywords
   Function = "Function",
-  Let = "Let"
+  Let = "Let",
+  True = "True",
+  False = "False",
+  If = "If",
+  Else = "Else",
+  Return = "Return"
 }
